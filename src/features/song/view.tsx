@@ -1,12 +1,7 @@
-import { setAudio, removeAudio } from '@/models/audio';
 import { useInfo } from './model';
 
 const Song: React.FC<{ track: SpotifyApi.SavedTrackObject['track'] }> = ({ track }) => {
-  const { image, albumName, artists, songName, isActive } = useInfo(track);
-
-  const handleActive = () => {
-    isActive ? removeAudio() : setAudio(track.preview_url);
-  };
+  const { image, albumName, artists, songName, isActive, handleActive } = useInfo(track);
 
   return (
     <button
