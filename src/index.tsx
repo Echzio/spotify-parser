@@ -1,5 +1,8 @@
-import { render } from "react-dom";
-import { App } from "@/app/app";
-import "@/assets/styles/root.css";
+import { render } from 'react-dom';
+import { App } from '@/app/app';
 
-render(<App />, document.getElementById("app"));
+import '@/models/init';
+
+import '@/assets/styles/root.css';
+
+render(<App />, document.getElementById('app'));
