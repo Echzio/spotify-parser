@@ -1,1 +1,3 @@
-import './auth/init.ts';
+import './mount/init';
+import './auth/init';
+import './spotify/init';

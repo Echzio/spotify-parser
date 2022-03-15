@@ -1,0 +1,1 @@
+export { mountGate } from './init';

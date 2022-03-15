@@ -1,1 +1,1 @@
-export { $token, mountGate } from './init';
+export { $token } from './init';

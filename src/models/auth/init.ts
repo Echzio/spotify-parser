@@ -1,10 +1,8 @@
 import { createEffect, createStore, forward, sample } from 'effector';
-import { createGate } from 'effector-react';
+import { mountGate } from '@/models/mount';
 import { api } from '@/shared/api';
 
 const $token = createStore<string>('');
-
-const mountGate = createGate('app mounted');
 
 const checkCodeFx = createEffect(() => {
   const { search } = window.location;
@@ -54,8 +52,4 @@ forward({
 
 $token.on(setTokenFx.doneData, (_, token) => token);
 
-$token.watch(item => {
-  console.log(item);
-});
-
-export { $token, mountGate };
+export { $token };
