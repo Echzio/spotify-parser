@@ -1,5 +1,5 @@
 @import './tailwind.css';
 
 #app {
-  min-height: 100vh;
+  @apply bg-black flex flex-col min-h-screen;
 }
