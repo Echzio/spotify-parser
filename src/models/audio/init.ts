@@ -10,8 +10,4 @@ $audio.on(setAudio, (_, audio) => audio);
 
 $audio.on(removeAudio, () => '');
 
-$audio.watch(item => {
-  console.log(item);
-});
-
 export { $audio, setAudio, removeAudio };

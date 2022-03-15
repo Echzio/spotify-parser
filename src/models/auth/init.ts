@@ -27,8 +27,8 @@ const clearSearchFx = createEffect(() => {
   history.replaceState({}, '', '/');
 });
 
-const setTokenFx = createEffect(() => {
-  const { token } = Object.fromEntries(new URLSearchParams(document.cookie.split(';').join('&')).entries());
+const setTokenFx = createEffect(async () => {
+  const { token = '' } = Object.fromEntries(new URLSearchParams(document.cookie.split('; ').join('&')).entries());
 
   return token;
 });
