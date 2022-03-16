@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "webpack serve --mode=development",
     "build": "webpack --mode=production",
-    "postinstall": "husky install",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "prepare": "husky install"
   },
   "dependencies": {
     "core-js": "^3.21.1",
@@ -41,7 +41,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslist": "^1.0.0-beta.1",
     "html-webpack-plugin": "^5.5.0",
-    "husky": "^7.0.4",
+    "husky": "^7.0.0",
     "lint-staged": "^12.3.5",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^6.2.1",
