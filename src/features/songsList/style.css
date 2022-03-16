@@ -1,0 +1,15 @@
+.songs-wrapper {
+  @apply overflow-auto w-full;
+}
+
+.songs-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.songs-wrapper::-webkit-scrollbar-thumb {
+  @apply bg-green rounded-full;
+}
+
+.songs-wrapper::-webkit-scrollbar-track {
+  @apply bg-white rounded-xl;
+}

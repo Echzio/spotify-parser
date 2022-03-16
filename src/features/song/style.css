@@ -1,0 +1,9 @@
+/* stylelint-disable value-no-vendor-prefix */
+.song-name {
+  @apply text-left;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

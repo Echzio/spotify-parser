@@ -1,4 +1,5 @@
 import { useInfo } from './model';
+import './style.css';
 
 const Song: React.FC<{ track: SpotifyApi.SavedTrackObject['track'] }> = ({ track }) => {
   const { image, albumName, artists, songName, isActive, handleActive } = useInfo(track);
@@ -17,7 +18,7 @@ const Song: React.FC<{ track: SpotifyApi.SavedTrackObject['track'] }> = ({ track
         )}
       </div>
       <div>
-        <p className="text-left">
+        <p className="song-name">
           {artists} - {songName}
         </p>
       </div>

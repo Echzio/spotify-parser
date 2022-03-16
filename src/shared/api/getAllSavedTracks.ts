@@ -1,17 +1,24 @@
 import SpotifyWebApi from 'spotify-web-api-js';
 
-function getAllSavedTracks(spotify: SpotifyWebApi.SpotifyWebApiJs, callback: (result: SpotifyApi.UsersSavedTracksResponse) => void) {
+function getAllSavedTracks(
+  spotify: SpotifyWebApi.SpotifyWebApiJs,
+  callback: (result: SpotifyApi.UsersSavedTracksResponse) => void,
+  complete: (success: true) => void,
+) {
   let result = {} as SpotifyApi.UsersSavedTracksResponse;
 
   async function recursion(next: string, offset: number) {
-    if (!next) return;
+    if (!next) {
+      complete(true);
+      return;
+    }
     const response = await spotify.getMySavedTracks({ offset, limit: 50 });
 
     if (next === 'first') {
       result = response;
     } else {
       result = {
-        ...result,
+        ...response,
         items: [...result.items, ...response.items],
       };
     }
@@ -19,7 +26,7 @@ function getAllSavedTracks(spotify: SpotifyWebApi.SpotifyWebApiJs, callback: (re
     callback(result);
 
     try {
-      await recursion(response.next, offset + 20);
+      await recursion(response.next, offset + 50);
     } catch (e) {
       alert((e as { message: string }).message);
     }
