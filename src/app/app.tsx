@@ -12,7 +12,12 @@ const App = () => {
   const spotify = useStore($spotify);
   useGate(mountGate);
 
-  if (!token) return <div className="w-full h-full flex-grow flex justify-center items-center">{!token && <Login />}</div>;
+  if (!token)
+    return (
+      <div className="w-full h-full flex-grow flex justify-center items-center">
+        <Login />
+      </div>
+    );
 
   if (spotify === null) return null;
 
