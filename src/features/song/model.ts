@@ -1,4 +1,4 @@
-import { useStore } from 'effector-react';
+import { useStore, useEvent } from 'effector-react';
 import { $audio, removeAudio, setAudio } from '@/models/audio';
 
 const useInfo = (track: SpotifyApi.SavedTrackObject['track']) => {
@@ -8,9 +8,14 @@ const useInfo = (track: SpotifyApi.SavedTrackObject['track']) => {
   const artists = track.artists.map(({ name }) => name).join(', ');
   const songName = track.name;
   const isActive = audio === track.preview_url;
+  const trackPreviewNull = track.preview_url === null;
+
+  const removeAudioHandler = useEvent(removeAudio);
+  const setAudioHandler = useEvent(setAudio);
 
   const handleActive = () => {
-    isActive ? removeAudio() : setAudio(track.preview_url);
+    if (trackPreviewNull) return;
+    isActive ? removeAudioHandler() : setAudioHandler(track.preview_url);
   };
 
   return {
@@ -20,6 +25,7 @@ const useInfo = (track: SpotifyApi.SavedTrackObject['track']) => {
     songName,
     isActive,
     handleActive,
+    trackPreviewNull,
   };
 };
 

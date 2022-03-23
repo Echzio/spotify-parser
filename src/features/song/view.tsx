@@ -2,13 +2,10 @@ import { useInfo } from './model';
 import './style.css';
 
 const Song: React.FC<{ track: SpotifyApi.SavedTrackObject['track'] }> = ({ track }) => {
-  const { image, albumName, artists, songName, isActive, handleActive } = useInfo(track);
+  const { image, albumName, artists, songName, isActive, handleActive, trackPreviewNull } = useInfo(track);
 
   return (
-    <button
-      type="button"
-      className="text-white flex gap-x-4 py-4 items-start hover:opacity-70 transition-opacity duration-150 h-20"
-      onClick={handleActive}>
+    <button type="button" className={`song-button ${trackPreviewNull ? 'song-button_disabled' : ''}`} onClick={handleActive}>
       <div className="w-12 relative flex-shrink-0">
         <img src={image} alt={albumName} className="w-full h-full object-cover" />
         {isActive && (

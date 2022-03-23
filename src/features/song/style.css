@@ -7,3 +7,11 @@
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+
+.song-button {
+  @apply text-white flex gap-x-4 py-4 items-start hover:opacity-70 transition-opacity duration-150 h-20;
+}
+
+.song-button_disabled {
+  @apply hover:opacity-100 cursor-default;
+}
