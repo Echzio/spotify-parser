@@ -1,8 +1,9 @@
-import { createEffect, createStore, forward, sample } from 'effector';
-import { mountGate } from '@/models/mount';
+import { createEffect, createEvent, createStore, forward, sample } from 'effector';
 import { api } from '@/shared/api';
 
 const $token = createStore<string>('');
+
+const getAuth = createEvent();
 
 const checkCodeFx = createEffect(() => {
   const { search } = window.location;
@@ -33,10 +34,9 @@ const setTokenFx = createEffect(async () => {
   return token;
 });
 
-sample({
-  clock: mountGate.status,
-  filter: item => item,
-  target: [checkCodeFx, setTokenFx],
+forward({
+  from: getAuth,
+  to: [checkCodeFx, setTokenFx],
 });
 
 sample({
@@ -52,4 +52,4 @@ forward({
 
 $token.on(setTokenFx.doneData, (_, token) => token);
 
-export { $token };
+export { $token, checkCodeFx, setTokenFx, getTokenFx, getAuth };
