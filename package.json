@@ -8,6 +8,9 @@
     "build": "webpack --mode=production",
     "pre-commit": "lint-staged",
     "prepare": "husky install",
+    "type-checking": "yarn tsc --noemit",
+    "linting:ts": "yarn eslint \"**/*.{ts,tsx}\" --max-warnings=0",
+    "linting:css": "yarn stylelint \"**/*.css\"",
     "test": "jest"
   },
   "dependencies": {
