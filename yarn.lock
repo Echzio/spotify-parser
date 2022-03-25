@@ -3615,11 +3615,6 @@ eslint@^8.11.0:
     text-table "^0.2.0"
     v8-compile-cache "^2.0.3"
 
-eslist@^1.0.0-beta.1:
-  version "1.0.0-beta.1"
-  resolved "https://registry.npmjs.org/eslist/-/eslist-1.0.0-beta.1.tgz"
-  integrity sha512-E62RN0l1yuH9O/RRdnB+MYTqB9/oPIc+0Y6N5HMzwTQJ1T4uAdGQS0S97E8UGsT/hCncv0NduaJztsnRRGkpVw==
-
 espree@^9.3.1:
   version "9.3.1"
   resolved "https://registry.npmjs.org/espree/-/espree-9.3.1.tgz"
