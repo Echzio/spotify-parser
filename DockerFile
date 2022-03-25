@@ -1,0 +1,7 @@
+FROM node:16
+COPY ./dist .
+EXPOSE 8080:8080
+WORKDIR /
+RUN yarn global add serve
+CMD ["serve", "-l", "8080"]
+
