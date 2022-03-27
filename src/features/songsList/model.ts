@@ -23,9 +23,8 @@ const useVirtual = (count: number, visibleItems: number, height: number) => {
   const [virtualStart, setVirtualStart] = useState(0);
 
   const onScroll = useCallback(
-    (event: React.UIEvent<HTMLDivElement>) => {
-      const target = event.target as HTMLDivElement;
-      setVirtualStart(Math.min(count - visibleItems, Math.floor(target.scrollTop / height)));
+    ({ currentTarget }: React.UIEvent<HTMLDivElement>) => {
+      setVirtualStart(Math.min(count - visibleItems, Math.floor(currentTarget.scrollTop / height)));
     },
     [count, visibleItems, height],
   );
